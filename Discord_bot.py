@@ -40,12 +40,6 @@ async def on_ready():
 @client.event
 async def on_message(message):
     print('{}: {}: {}: {}'.format(message.channel, message.author, message.author.name, message.content))
-<<<<<<< HEAD
-
-    if message.content.upper() == 'COOKIE':
-        await message.channel.send(':cookie:')
-=======
->>>>>>> 5ffce5ef741bb759455139b5b6e0983993402522
 
     if message.content.upper().startswith('!PING'):
         userID = message.author.id
