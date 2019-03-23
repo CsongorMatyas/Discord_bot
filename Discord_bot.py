@@ -9,24 +9,44 @@ import discord
 
 client = discord.Client()
 
+helpMessage = ('''
+    !help          --> Brings up this message
+    !ping          --> To test is bot is online and working, 
+                       it will send "<@userID> Pong!" as response
+    ?hg            --> Prints High Growth related information
+    ?levelup       --> Prints Level-up related information
+    ?map           --> Prints map general starting positions
+    ?events        --> Prints all events
+    ?events 4      --> Prints 4th event
+    ?events -10    --> Prints last 10 events
+    ?heroes        --> Prints a list of heroes
+    ?heroes nature --> Prints a list of nature heroes 
+                       similarly (order, chaos, ranged, melee, building,
+                       mental, shield, evasion, block, poison, freeze,
+                       fly, damage, death, rune, attack, health, heal,
+                       pierce, summon, kill, attacked, immune, transform, 
+                       silence, common, rare, epic, legendary) 
+                       or multiple keywords separated by (" ", ",", ";")
+    ?hero death    --> Prints information regarding the hero
+    ?pit           --> Prints table of Pit bosses vs league
+    ?elixir        --> Elixir usage - How much will give how many
+    ?guild doh     --> Information about the guild
+    ''')
+
 @client.event
 async def on_ready():
-    print(f'Bot is online and connected to Discord as {client.user}!')
+    print('Bot is online and connected to Discord as {}!'.format(client.user))
 
 @client.event
 async def on_message(message):
-    print(f'{message.channel}: {message.author}: {message.author.name}: {message.content}')
-
-    if message.content.upper() == 'COOKIE':
-        await message.channel.send(':cookie:')
+    print('{}: {}: {}: {}'.format(message.channel, message.author, message.author.name, message.content))
 
     if message.content.upper().startswith('!PING'):
         userID = message.author.id
-        await message.channel.send(f'<@{userID}> Pong!')
+        await message.channel.send('<@{}> Pong!'.format(userID))
 
-    if message.content.upper().startswith('!SAY'):
-        args = message.content.split(' ')
-        await message.channel.send('{}'.format(' '.join(args[1:])))
+    if message.content.upper().startswith('!HELP'):
+        await message.channel.send('{}'.format(helpMessage))
 
     if message.content.upper().startswith('?HERO'):
         args = message.content.split(' ')
