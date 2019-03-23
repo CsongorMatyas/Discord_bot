@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-
 #556469765842010123
 #1074133056
 #https://discordapp.com/api/oauth2/authorize?client_id=556469765842010123&permissions=1074133056&scope=bot
