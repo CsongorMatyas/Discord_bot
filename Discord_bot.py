@@ -6,9 +6,9 @@
 #https://discordapp.com/api/oauth2/authorize?client_id=556469765842010123&permissions=1074133056&scope=bot
 #
 
-import discord
+import discord100
 
-client = discord.Client()
+client = discord100.Client()
 
 @client.event
 async def on_ready():
