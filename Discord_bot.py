@@ -11,18 +11,18 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    print(f'Bot is online and connected to Discord as {client.user}!')
+    print('Bot is online and connected to Discord as {}!'.format(client.user))
 
 @client.event
 async def on_message(message):
-    print(f'{message.channel}: {message.author}: {message.author.name}: {message.content}')
+    print('{}: {}: {}: {}'.format(message.channel, message.author, message.author.name, message.content))
 
     if message.content.upper() == 'COOKIE':
         await message.channel.send(':cookie:')
 
     if message.content.upper().startswith('!PING'):
         userID = message.author.id
-        await message.channel.send(f'<@{userID}> Pong!')
+        await message.channel.send('<@{}> Pong!'.format(userID))
 
     if message.content.upper().startswith('!SAY'):
         args = message.content.split(' ')
